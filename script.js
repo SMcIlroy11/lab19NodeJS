@@ -26,14 +26,16 @@
 
 var http = require('http');
 
-var favorites=require('./example.js');
-console.log(favorites);
+var info=require('./example.js');
+console.log(info);
 http.createServer(onRequest).listen(8888);
 
 function onRequest(request, response) {
 response.writeHead(200, {"Content-type": "text/plain"});
-// response.write("Hello, World");
-response.write(favorites[Math.floor(Math.random()* favorites.length)]);
+response.write("Two Truths and a Lie:   ");
+response.write(info.truths1[Math.floor(Math.random()* info.truths1.length)]);
+response.write(info.lies[Math.floor(Math.random()* info.lies.length)]);
+response.write(info.truths2[Math.floor(Math.random()* info.truths2.length)]);
 response.end();
 }
 
